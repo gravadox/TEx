@@ -2,11 +2,15 @@
 ### TEx
 simple text expander ( keyboard abbreviation application) using python.
 clone and install dependencies </br>
-**run:** </br>
-```bash $ pip install customtkinter pystray keyboard```
+**run:**
+```bash
+ $ pip install customtkinter pystray keyboard
+```
 
-**then run:** </br>
-```bash $ python main.py```
+**then run:**
+```bash
+ $ python main.py
+```
 
 pay attention to the tray when you close the app.
 
