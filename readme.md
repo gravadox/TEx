@@ -1,12 +1,12 @@
 ![](https://i.imghippo.com/files/wMQo7503Jls.jpg)
 ### TEx
 simple text expander ( keyboard abbreviation application) using python.
-clone and install dependencies
-**run:**
-```$ pip install customtkinter pystray keyboard```
+clone and install dependencies </br>
+**run:** </br>
+```bash $ pip install customtkinter pystray keyboard```
 
-**then run:**
-```$ python main.py```
+**then run:** </br>
+```bash $ python main.py```
 
 pay attention to the tray when you close the app.
 
