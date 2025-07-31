@@ -4,6 +4,6 @@ dist/
 abbreviations.json
 categories.json
 .git/
-main.spec
 
+*.spec
 *.pyc

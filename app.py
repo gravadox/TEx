@@ -460,13 +460,13 @@ class TEx(ctk.CTk):
     def apply_abbreviations(self):
         """Apply abbreviations to the text expander"""
         self.text_expander.clear_abbreviations()
-        
+    
         for source, data in self.abbrev_dict.items():
             if isinstance(data, dict) and data.get('tag') == self.current_tag and not data.get('ignored', False):
                 if not data['replacement'].startswith("[DECRYPTION FAILED") and \
                    not data['replacement'].startswith("[ENCRYPTED - LOCKED]"):
                     self.text_expander.add_abbreviation(source, data['replacement'])
-
+    
     def add_or_edit_abbreviation(self):
         source = self.nameEntry.get().strip()
         replacement = self.replacementEntry.get().strip()
