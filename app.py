@@ -458,11 +458,11 @@ class TEx(ctk.CTk):
         self.tree.tag_configure("unignored", foreground="white", background="#151515")
 
     def apply_abbreviations(self):
-        """Apply abbreviations to the text expander"""
+        """Apply all active and decrypted abbreviations to the text expander"""
         self.text_expander.clear_abbreviations()
     
         for source, data in self.abbrev_dict.items():
-            if isinstance(data, dict) and data.get('tag') == self.current_tag and not data.get('ignored', False):
+            if isinstance(data, dict) and not data.get('ignored', False):
                 if not data['replacement'].startswith("[DECRYPTION FAILED") and \
                    not data['replacement'].startswith("[ENCRYPTED - LOCKED]"):
                     self.text_expander.add_abbreviation(source, data['replacement'])
