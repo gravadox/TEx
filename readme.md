@@ -4,7 +4,7 @@ simple text expander ( keyboard abbreviation application) using python.
 clone and install dependencies </br>
 **run:**
 ```bash
- $ pip install customtkinter pystray keyboard
+ $ pip install customtkinter pystray pynput cryptography keyring psutil notifypy
 ```
 
 **then run:**
@@ -14,9 +14,11 @@ clone and install dependencies </br>
 
 pay attention to the tray when you close the app.
 
-the expanding functionality is totaly by the keyboard library:
-```py
-self.abbrev_hooks[key] = keyboard.add_abbreviation(key, value, timeout=5)
+the expanding functionality is totaly achieved by the pynput library:
+```bash
+TEx/
+└── Expander/
+    └── text_expander.py
 ```
 
 the app comes with 7 default abbreviations, typeof emoji you can find in the abbreviations.json file:
@@ -59,5 +61,9 @@ the app comes with 7 default abbreviations, typeof emoji you can find in the abb
     }
 }
 ```
-you can clear the file or remove manually if you want to delete them,
-anyways just wanted to say if you are ever serious about using this application pay attention also to the catigories of text you add, make sure you have a unique prefix for every one of them
+you have the freedom to create categoires and delete them.
+you can also create an encrypted category by checking the checkbox for encryption.
+you can store passwords and secret data in it although caution is required.
+all data stored in an encrypted category is decrypted using keyring token, if that token is lost your data can not be retrieved.
+I advice you keep a copy of data you don't want to lose just in case.
+I recommend you don't change the app files unless you know what you're doing.

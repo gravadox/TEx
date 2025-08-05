@@ -1,0 +1,42 @@
+{
+    "emoji": {
+        "name": "Emoji",
+        "icon": "😀",
+        "description": "Emoji shortcuts and emoticons",
+        "color": "#FFD700",
+        "deletable": true,
+        "is_encrypted": false
+    },
+    "sticker": {
+        "name": "Sticker",
+        "icon": "🎯",
+        "description": "Stickers and reaction images",
+        "color": "#FF6B6B",
+        "deletable": true,
+        "is_encrypted": false
+    },
+    "text": {
+        "name": "Text",
+        "icon": "📝",
+        "description": "Text snippets and templates",
+        "color": "#4ECDC4",
+        "deletable": true,
+        "is_encrypted": false
+    },
+    "link": {
+        "name": "Link",
+        "icon": "🔗",
+        "description": "URLs and web links",
+        "color": "#45B7D1",
+        "deletable": true,
+        "is_encrypted": false
+    },
+    "passwords": {
+        "name": "Passwords",
+        "icon": "🔑",
+        "description": "Securely stored passwords and sensitive data",
+        "color": "#FF4500",
+        "deletable": true,
+        "is_encrypted": true
+    }
+}

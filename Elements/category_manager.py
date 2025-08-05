@@ -3,7 +3,7 @@ import os
 from typing import Dict, List, Optional
 
 class CategoryManager:
-    def __init__(self, categories_file="categories.json"):
+    def __init__(self, categories_file="user/Categories.json"):
         self.categories_file = categories_file
         self.categories = {}
         self.load_categories()

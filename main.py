@@ -1,4 +1,4 @@
-from app import TEx
+from Elements.app import TEx
 import os
 
 if __name__ == "__main__":

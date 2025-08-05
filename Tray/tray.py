@@ -2,12 +2,17 @@ import pystray
 from PIL import Image, ImageDraw
 from pystray import MenuItem as item
 import threading
+from Elements.buffer_window import show_buffer_window
+import psutil
+import os
+from notifypy import Notify
 
 class TrayIcon:
     def __init__(self, app):
         self.app = app
         self.tray_icon = None
         self.tray_thread = None
+        self.show_buffer_window = lambda icon=None, item=None: show_buffer_window(self, icon="icon.png")
 
     def create_simple_icon(self):
         """Create a simple icon if icon.ico doesn't exist"""
@@ -35,6 +40,7 @@ class TrayIcon:
                 pystray.Menu.SEPARATOR,
                 item('Toggle Expansion', self.toggle_expansion, checked=lambda item: self.app.text_expander.enabled),
                 pystray.Menu.SEPARATOR,
+                item('Show Buffer', self.show_buffer_window), 
                 item('Clear Buffer', self.clear_buffer),
                 item('Statistics', self.show_stats),
                 pystray.Menu.SEPARATOR,
@@ -127,6 +133,7 @@ class TrayIcon:
                     pystray.Menu.SEPARATOR,
                     item('Toggle Expansion', self.toggle_expansion, checked=lambda item: self.app.text_expander.enabled),
                     pystray.Menu.SEPARATOR,
+                    item('Show Buffer', self.show_buffer_window),
                     item('Clear Buffer', self.clear_buffer),
                     item('Statistics', self.show_stats),
                     pystray.Menu.SEPARATOR,
@@ -148,21 +155,44 @@ class TrayIcon:
     def show_stats(self, icon=None, item=None):
         """Show expansion statistics"""
         try:
+            # Abbreviation stats
             total_abbrevs = len([k for k, v in self.app.abbrev_dict.items() 
-                               if isinstance(v, dict) and not v.get('ignored', False)])
+                                 if isinstance(v, dict) and not v.get('ignored', False)])
             active_abbrevs = len(self.app.text_expander.abbreviations)
             status = 'ENABLED' if self.app.text_expander.enabled else 'DISABLED'
-            
-            stats_msg = f"Total: {total_abbrevs} | Active: {active_abbrevs} | Status: {status}"
+
+            # Category stats
+            category_data = self.app.category_manager.categories if hasattr(self.app, 'category_manager') else {}
+            total_categories = len(category_data)
+            encrypted_categories = sum(1 for cat in category_data.values() if cat.get('is_encrypted'))
+            # Resource usage
+            process = psutil.Process(os.getpid())
+            memory_mb = process.memory_info().rss / (1024 * 1024)  # Resident Set Size in MB
+            cpu_percent = process.cpu_percent(interval=0.1)
+
+            # Build stats message
+            stats_msg = (
+                f"Total Abbrevs: {total_abbrevs} | Active: {active_abbrevs}\n"
+                f"Categories: {total_categories} | Encrypted: {encrypted_categories}\n"
+                f"Status: {status}\n"
+                f"Memory: {memory_mb:.1f} MB | CPU: {cpu_percent:.1f}%"
+            )
+
             self.show_notification("TEx Statistics", stats_msg)
+
         except Exception as e:
             print(f"Show stats error: {e}")
 
     def show_notification(self, title, message=""):
-        """Show system notification"""
         try:
-            if self.tray_icon:
-                self.tray_icon.notify(message if message else title, title if message else "TEx")
+            notification = Notify()
+            notification.application_name = "TEx - Text Expander" ,
+            notification._notification_application_name = "TEx - Text Expander",
+            notification.app_id = "TEx - Text Expander"
+            notification.title = title
+            notification.message = message
+            notification.icon = "icon.ico"  # or "path/to/your/icon.png"
+            notification.send()
         except Exception as e:
             print(f"Notification error: {e}")
 
