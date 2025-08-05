@@ -61,9 +61,9 @@ the app comes with 7 default abbreviations, typeof emoji you can find in the abb
     }
 }
 ```
-you have the freedom to create categoires and delete them.
-you can also create an encrypted category by checking the checkbox for encryption.
-you can store passwords and secret data in it although caution is required.
-all data stored in an encrypted category is decrypted using keyring token, if that token is lost your data can not be retrieved.
-I advice you keep a copy of data you don't want to lose just in case.
+you have the freedom to create categoires and delete them.<br>
+you can also create an encrypted category by checking the checkbox for encryption.<br>
+you can store passwords and secret data in it although caution is required.<br>
+all data stored in an encrypted category is decrypted using keyring token, if that token is lost your data can not be retrieved.<br>
+I advice you keep a copy of data you don't want to lose just in case.<br>
 I recommend you don't change the app files unless you know what you're doing.
