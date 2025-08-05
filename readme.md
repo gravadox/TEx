@@ -20,6 +20,8 @@ TEx/
 └── Expander/
     └── text_expander.py
 ```
+<br>
+check: [text_expander.py](https://github.com/gravadox/TEx/blob/main/Expander/Text_expander.py) file
 
 the app comes with 7 default abbreviations, typeof emoji you can find in the abbreviations.json file:
 ```json
