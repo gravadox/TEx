@@ -1,36 +1,36 @@
 {
     "--sunglasses": {
-        "replacement": "\ud83d\ude0e",
+        "replacement": "😎",
         "ignored": false,
         "tag": "emoji"
     },
     "--cry": {
-        "replacement": "\ud83d\ude22",
+        "replacement": "😢",
         "ignored": false,
         "tag": "emoji"
     },
     "--heart": {
-        "replacement": "\u2764\ufe0f",
+        "replacement": "❤️",
         "ignored": false,
         "tag": "emoji"
     },
     "--thumbs_up": {
-        "replacement": "\ud83d\udc4d",
+        "replacement": "👍",
         "ignored": false,
         "tag": "emoji"
     },
     "--middle_finger": {
-        "replacement": "\ud83d\udd95",
+        "replacement": "🖕",
         "ignored": false,
         "tag": "emoji"
     },
     "--wink": {
-        "replacement": "\ud83d\ude09",
+        "replacement": "😉",
         "ignored": false,
         "tag": "emoji"
     },
     "--laugh": {
-        "replacement": "\ud83d\ude02",
+        "replacement": "😂",
         "ignored": false,
         "tag": "emoji"
     }

@@ -102,12 +102,13 @@ class CategoryDialog:
         self.color_entry.bind("<KeyRelease>", self.update_color_preview)
 
         self.encrypted_var = ctk.BooleanVar(value=False)
-        self.encrypted_checkbox = ctk.CTkCheckBox(main_frame, text="Encrypted Category",
-                                                  variable=self.encrypted_var,
-                                                  fg_color="white", text_color="white",
-                                                  hover_color="#E8E8E8",
-                                                  checkbox_width=20, checkbox_height=20)
-        self.encrypted_checkbox.pack(anchor="w", pady=(10, 20))
+        if self.mode == "add":
+            self.encrypted_checkbox = ctk.CTkCheckBox(main_frame, text="Encrypted Category",
+                                                      variable=self.encrypted_var,
+                                                      fg_color="white", text_color="white",
+                                                      hover_color="#E8E8E8",
+                                                      checkbox_width=20, checkbox_height=20)
+            self.encrypted_checkbox.pack(anchor="w", pady=(10, 20))
         
         button_frame = ctk.CTkFrame(main_frame, fg_color="#151515")
         button_frame.pack(fill="x", pady=(20, 0))
