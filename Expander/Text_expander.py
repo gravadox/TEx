@@ -42,12 +42,11 @@ class TextExpander:
         # print(f"Key pressed: {key}")
         if self._force_stop or not self.enabled:
             return
-
         try:
             if hasattr(key, 'char') and key.char is not None:
                 if key.char.isprintable():
                     self.buffer += key.char
-            elif key in [Key.space, Key.enter, Key.tab, key.backspace, key.delete, key.left, key.right, key.up, key.down, key.home, key.end, key.page_up, key.page_down, key.esc, key.ctrl,key.shift ,key.alt, key.alt_l, key.alt_r, "\x01"]:
+            elif key in [Key.space, Key.enter, Key.tab, key.delete, key.left, key.right, key.up, key.down, key.home, key.end, key.page_up, key.page_down, key.esc, key.ctrl,key.shift ,key.alt, key.alt_l, key.alt_r, "\x01"]:
                 if key == Key.space:
                     self.buffer += ' '
                 elif key == Key.enter:
@@ -57,7 +56,8 @@ class TextExpander:
                 self.check_abbreviations()
             elif key == Key.backspace:
                 if self.buffer:
-                    self.buffer = self.buffer[:-1]
+                    self.buffer = '' # for now lets just make it that backspace clears the buffer, should find a way around ctrl+a+backspace in the future
+                    # self.buffer = self.buffer[:-1]
             else:
                 pass
 
@@ -71,7 +71,7 @@ class TextExpander:
         """Check if buffer ends with an abbreviation as a standalone word followed by space"""
         if self._force_stop or not self.enabled:
             return
-
+        
         if not self.buffer.endswith(' '):
             return
 
@@ -80,7 +80,6 @@ class TextExpander:
             return
 
         last_word = words[-1]
-
         for abbrev, replacement in self.abbreviations.items():
             if last_word == abbrev:
                 self.expand_abbreviation(abbrev, replacement)

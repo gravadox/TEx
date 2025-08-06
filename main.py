@@ -1,7 +1,11 @@
 from Elements.app import TEx
+from user_files.extract_user_files import setup_user_folder
+from user_files.extract_icon import setup_icon
 import os
 
 if __name__ == "__main__":
+    setup_icon()
+    setup_user_folder()
     app = TEx()
     
     try:
@@ -12,7 +16,6 @@ if __name__ == "__main__":
             print(f"Warning: icon.ico not found at {icon_path}. Using default icon.")
     except Exception as e:
         print(f"Error setting icon: {e}. Using default icon.")
-
 
     app.resizable(True, True)
     app.minsize(width=1000, height=400) 

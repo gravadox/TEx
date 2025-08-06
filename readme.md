@@ -11,7 +11,7 @@ clone and install dependencies </br>
 
 ```bash
 
-$  pip  install  customtkinter  pystray  pynput  cryptography  keyring  psutil  notifypy
+$  pip  install  customtkinter  pystray  pynput  cryptography  keyring  psutil  notify-py
 
 ```
 

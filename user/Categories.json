@@ -1,7 +1,7 @@
 {
     "emoji": {
         "name": "Emoji",
-        "icon": "😀",
+        "icon": "\ud83d\ude00",
         "description": "Emoji shortcuts and emoticons",
         "color": "#FFD700",
         "deletable": true,
@@ -9,7 +9,7 @@
     },
     "sticker": {
         "name": "Sticker",
-        "icon": "🎯",
+        "icon": "\ud83c\udfaf",
         "description": "Stickers and reaction images",
         "color": "#FF6B6B",
         "deletable": true,
@@ -17,7 +17,7 @@
     },
     "text": {
         "name": "Text",
-        "icon": "📝",
+        "icon": "\ud83d\udcdd",
         "description": "Text snippets and templates",
         "color": "#4ECDC4",
         "deletable": true,
@@ -25,7 +25,7 @@
     },
     "link": {
         "name": "Link",
-        "icon": "🔗",
+        "icon": "\ud83d\udd17",
         "description": "URLs and web links",
         "color": "#45B7D1",
         "deletable": true,
@@ -33,7 +33,7 @@
     },
     "passwords": {
         "name": "Passwords",
-        "icon": "🔑",
+        "icon": "\ud83d\udd11",
         "description": "Securely stored passwords and sensitive data",
         "color": "#FF4500",
         "deletable": true,
