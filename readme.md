@@ -36,10 +36,8 @@ the expanding functionality is totaly achieved by the pynput library:
 ```bash
 
 TEx/
-
 └──  Expander/
-
-└──  text_expander.py
+     └──  text_expander.py
 
 ```
 check: [text_expander.py](https://github.com/gravadox/TEx/blob/main/Expander/Text_expander.py) file
@@ -51,89 +49,56 @@ the app comes with 7 default abbreviations, typeof emoji you can find in the abb
 ```json
 
 {
-
 "--wink":  {
-
 "replacement":  "😉",
-
 "ignored":  false,
-
 "tag":  "emoji"
-
 },
 
 "--laugh":  {
-
 "replacement":  "😂",
-
 "ignored":  false,
-
 "tag":  "emoji"
 
 },
 
 "--sunglasses":  {
-
 "replacement":  "😎",
-
 "ignored":  false,
-
 "tag":  "emoji"
 
 },
 
 "--cry":  {
-
 "replacement":  "😢",
-
 "ignored":  false,
-
 "tag":  "emoji"
-
 },
 
 "--heart":  {
-
 "replacement":  "❤️",
-
 "ignored":  false,
-
 "tag":  "emoji"
-
 },
 
 "--thumbs_up":  {
-
 "replacement":  "👍",
-
 "ignored":  false,
-
 "tag":  "emoji"
-
 },
 
 "--middle_finger":  {
-
 "replacement":  "🖕",
-
 "ignored":  false,
-
 "tag":  "emoji"
-
 }
-
 }
 
 ```
 
 you have the freedom to create categoires and delete them.<br>
-
 you can also create an encrypted category by checking the checkbox for encryption.<br>
-
 you can store passwords and secret data in it although caution is required.<br>
-
 all data stored in an encrypted category is decrypted using keyring token, if that token is lost your data can not be retrieved.<br>
-
 I advice you keep a copy of data you don't want to lose just in case.<br>
-
 I recommend you don't change the app files unless you know what you're doing.
