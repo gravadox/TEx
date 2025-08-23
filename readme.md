@@ -102,3 +102,9 @@ you can store passwords and secret data in it although caution is required.<br>
 all data stored in an encrypted category is decrypted using keyring token, if that token is lost your data can not be retrieved.<br>
 I advice you keep a copy of data you don't want to lose just in case.<br>
 I recommend you don't change the app files unless you know what you're doing.
+
+** better CLI based version is coming soon **
+
+** note this app is tested on windows and linux wayland **
+
+** your feedback is appreciated **
