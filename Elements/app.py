@@ -3,11 +3,17 @@ import tkinter as tk
 from tkinter import ttk
 import json
 import os
-from Tray.tray import TrayIcon
+import platform
 from Elements.category_manager import CategoryManager
 from Elements.category_dialog import CategoryManagerDialog
 from Encryption.encryption_util import EncryptionUtil
 from Expander.Text_expander import TextExpander
+
+""" Tray solution for linux wayland """
+if platform.system() == "Linux":
+    from Tray.linux_tray import TrayIcon
+else:
+    from Tray.tray import TrayIcon
 
 """"Main TEx application class"""
 

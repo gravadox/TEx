@@ -25,9 +25,16 @@ class CategoryDialog:
         self.dialog.configure(fg_color="#151515")
         
         self.dialog.transient(self.parent)
-        self.dialog.grab_set()
         
         self.dialog.update_idletasks()
+        self.dialog.deiconify()  # Ensure window is visible
+        
+        # Try to set grab with error handling for Wayland compatibility
+        try:
+            self.dialog.after(10, self._safe_grab_set)  # Delay grab slightly
+        except Exception as e:
+            print(f"Warning: Could not set window grab: {e}")
+        
         x = (self.dialog.winfo_screenwidth() // 2) - (350 // 2)
         y = (self.dialog.winfo_screenheight() // 2) - (637 // 2) 
         self.dialog.geometry(f"350x637+{x}+{y}")
@@ -36,6 +43,21 @@ class CategoryDialog:
         
         if self.mode == "edit" and self.category_id:
             self.load_category_data()
+    
+    def _safe_grab_set(self):
+        """Safely set window grab with error handling for Wayland"""
+        try:
+            if self.dialog.winfo_viewable():
+                self.dialog.grab_set()
+                self.dialog.focus_set()
+        except Exception as e:
+            print(f"Warning: Could not set window grab: {e}")
+            # On Wayland, we can still focus the window even if grab fails
+            try:
+                self.dialog.focus_set()
+                self.dialog.lift()
+            except Exception:
+                pass
     
     def create_widgets(self):
         """Create dialog widgets"""
@@ -246,9 +268,16 @@ class CategoryManagerDialog:
         self.dialog.configure(fg_color="#151515")
         
         self.dialog.transient(self.parent)
-        self.dialog.grab_set()
         
         self.dialog.update_idletasks()
+        self.dialog.deiconify()  # Ensure window is visible
+        
+        # Try to set grab with error handling for Wayland compatibility
+        try:
+            self.dialog.after(10, self._safe_grab_set)  # Delay grab slightly
+        except Exception as e:
+            print(f"Warning: Could not set window grab: {e}")
+        
         x = (self.dialog.winfo_screenwidth() // 2) - (411 // 2) 
         y = (self.dialog.winfo_screenheight() // 2) - (560 // 2) 
         self.dialog.geometry(f"411x560+{x}+{y}")
@@ -256,6 +285,20 @@ class CategoryManagerDialog:
         self.create_widgets()
         self.refresh_list()
     
+    def _safe_grab_set(self):
+        """Safely set window grab with error handling for Wayland"""
+        try:
+            if self.dialog.winfo_viewable():
+                self.dialog.grab_set()
+                self.dialog.focus_set()
+        except Exception as e:
+            print(f"Warning: Could not set window grab: {e}")
+            # On Wayland, we can still focus the window even if grab fails
+            try:
+                self.dialog.focus_set()
+                self.dialog.lift()
+            except Exception:
+                pass
     
     def create_widgets(self):
         """Create dialog widgets"""

@@ -3,6 +3,9 @@ build/
 dist/
 userdev/
 .git/
+myenv/
+venv/
+.venv/
 .installers
 
 *.spec
