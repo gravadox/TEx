@@ -1,7 +1,5 @@
+## <img alt="Icon" width="21" style="vertical-align: middle;" src="https://raw.githubusercontent.com/gravadox/TEx/refs/heads/main/icon.png" /> TEx
 
-![](https://i.imghippo.com/files/wMQo7503Jls.jpg)
-
-###  TEx
 
 simple text expander ( keyboard abbreviation application) using python.
 
