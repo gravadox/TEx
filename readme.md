@@ -39,7 +39,7 @@ TEx/
 ```
 check: [text_expander.py](https://github.com/gravadox/TEx/blob/main/Expander/Text_expander.py) file
 
-![](https://raw.githubusercontent.com/gravadox/TEx/refs/heads/main/icon.png)
+![](https://raw.githubusercontent.com/gravadox/TEx/refs/heads/main/screenshots/icon.png)
 
 the app comes with 7 default abbreviations, typeof emoji you can find in the abbreviations.json file:
 
