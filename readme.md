@@ -1,7 +1,4 @@
-
-![](https://i.imghippo.com/files/wMQo7503Jls.jpg)
-
-###  TEx
+### <img alt="Icon" width="21" style="vertical-align: middle;" src="https://raw.githubusercontent.com/gravadox/TEx/refs/heads/main/icon.png"> TEx
 
 simple text expander ( keyboard abbreviation application) using python.
 
@@ -42,7 +39,7 @@ TEx/
 ```
 check: [text_expander.py](https://github.com/gravadox/TEx/blob/main/Expander/Text_expander.py) file
 
-  
+![](https://raw.githubusercontent.com/gravadox/TEx/refs/heads/main/icon.png)
 
 the app comes with 7 default abbreviations, typeof emoji you can find in the abbreviations.json file:
 
@@ -103,8 +100,8 @@ all data stored in an encrypted category is decrypted using keyring token, if th
 I advice you keep a copy of data you don't want to lose just in case.<br>
 I recommend you don't change the app files unless you know what you're doing.
 
-** better CLI based version is coming soon **
+**better CLI based version is planned to be developed**
 
-** note this app is tested on windows and linux wayland **
+**note this app is tested on windows and linux on wayland**
 
-** your feedback is appreciated **
+**feedback is appreciated**
