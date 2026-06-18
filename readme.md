@@ -2,29 +2,58 @@
 
 simple text expander ( keyboard abbreviation application) using python.
 
-clone and install dependencies </br>
-
-**run:**
-
-```bash
-
-$  pip  install  customtkinter  pystray  pynput  cryptography  keyring  psutil  notify-py
-
-```
-
-  
-
-**then run:**
-
-```bash
-
-$  python  main.py
-
-```
-
-  
-
 pay attention to the tray when you close the app.
+
+---
+
+## Installation (Linux)
+
+### One-liner (recommended)
+
+Installs TEx to your system and adds it to your app launcher:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/gravadox/TEx/main/install.sh | bash
+```
+
+This downloads the latest binary from GitHub releases, installs it to `~/.local/share/TEx/`, and adds TEx to your app launcher and terminal.
+
+> If `TEx` is not found in terminal after install, add this to your `~/.bashrc` or `~/.zshrc`:
+> ```bash
+> export PATH="$HOME/.local/bin:$PATH"
+> ```
+
+To **uninstall**:
+```bash
+rm -rf ~/.local/share/TEx && rm -f ~/.local/bin/TEx ~/.local/share/applications/TEx.desktopapplications/TEx.desktop
+```
+
+---
+
+### AppImage (no install, works on any distro)
+
+1. Download `TEx-x86_64.AppImage` from the [latest release](https://github.com/gravadox/TEx/releases/latest)
+2. Run it:
+
+```bash
+chmod +x TEx-x86_64.AppImage
+./TEx-x86_64.AppImage
+```
+
+Nothing is installed on your system.
+
+---
+
+### Run from source
+
+```bash
+git clone https://github.com/gravadox/TEx.git
+cd TEx
+pip install customtkinter pystray pynput cryptography keyring psutil notify-py
+python main.py
+```
+
+---
 
   
 
@@ -39,7 +68,7 @@ TEx/
 ```
 check: [text_expander.py](https://github.com/gravadox/TEx/blob/main/Expander/Text_expander.py) file
 
-<img src="https://github.com/gravadox/TEx/blob/main/screenshots/image.png?raw=true">
+<img src="https://github.com/gravadox/TEx/blob/main/screenshots/image.png">
 
 the app comes with 7 default abbreviations, typeof emoji you can find in the abbreviations.json file:
 

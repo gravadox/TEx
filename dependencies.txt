@@ -1,0 +1,10 @@
+customtkinter
+keyring
+pynput
+psutil
+notify-py
+
+# Linux/Wayland only (Arch):
+#   pip install evdev PyGObject
+#   sudo pacman -S wtype
+#   sudo usermod -a -G input $USER   (then log out and back in)

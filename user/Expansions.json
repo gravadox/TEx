@@ -33,5 +33,10 @@
         "replacement": "😂",
         "ignored": false,
         "tag": "emoji"
+    },
+    "--pass": {
+        "replacement": "gAAAAABqMyqPxXUUKdFIrY3FQVwJvNkRcE41bkgepUwj6Zej4fFxYENJXioHThpVMhohwO0kDNeE_fTA3Etmna4jrDi-fxsx-A==",
+        "ignored": false,
+        "tag": "passwords"
     }
 }

@@ -7,7 +7,7 @@ if __name__ == "__main__":
     setup_icon()
     setup_user_folder()
     app = TEx()
-    
+
     try:
         icon_path = os.path.abspath('icon.ico')
         if os.path.exists(icon_path):
@@ -18,10 +18,17 @@ if __name__ == "__main__":
         print(f"Error setting icon: {e}. Using default icon.")
 
     app.resizable(True, True)
-    app.minsize(width=1000, height=400) 
+    app.minsize(width=1000, height=400)
     app.geometry("1100x600")
-    
+
     app.Show_tray()
     app.protocol("WM_DELETE_WINDOW", app.minimize_to_tray)
-    
+
+    # If the WM force-kills the window (e.g. SUPER+c in a tiling WM), quit
+    # cleanly instead of leaving the tray running with a dead window.
+    def _on_destroy(event):
+        if event.widget is app:
+            app.quit_application()
+    app.bind("<Destroy>", _on_destroy)
+
     app.mainloop()

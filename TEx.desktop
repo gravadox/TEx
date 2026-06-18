@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=TEx
+Comment=Simple text expander / keyboard abbreviation application
+Exec=TEx
+Icon=TEx
+Type=Application
+Categories=Utility;
+StartupNotify=false

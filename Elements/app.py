@@ -467,8 +467,11 @@ class TEx(ctk.CTk):
             self.tray_icon.destroy_tray_icon()
 
     def quit_application(self, icon=None, item=None):
-        """Quit the application"""
+        """Quit the application — safe to call from any thread."""
+        if getattr(self, '_quitting', False):
+            return
+        self._quitting = True
         self.text_expander.stop_listening()
         if self.tray_icon:
             self.tray_icon.destroy_tray_icon()
-        self.quit()
+        self.after(0, self.quit)  # must run on the Tkinter main thread

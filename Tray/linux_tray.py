@@ -52,22 +52,8 @@ class TrayIcon:
     def destroy_tray_icon(self):
         try:
             if WAYLAND:
-                def quit_gtk():
-                    try:
-                        Gtk.main_quit()
-                    except:
-                        pass
-                    return False
-                
-                try:
-                    from gi.repository import GLib
-                    GLib.idle_add(quit_gtk)
-                except:
-                    # Fallback if GLib is not available
-                    try:
-                        Gtk.main_quit()
-                    except:
-                        pass
+                self.tray_icon = None
+                GLib.idle_add(lambda: (Gtk.main_quit(), False)[1])
             else:
                 if self.tray_icon:
                     self.tray_icon.stop()
@@ -78,22 +64,17 @@ class TrayIcon:
 
     # -------------------- Shared Methods --------------------
     def toggle_window(self):
-        try:
-            if self.app.winfo_exists() and self.app.winfo_viewable():
-                self.app.withdraw()
-            else:
-                self.app.deiconify()
-                self.app.lift()
-                self.app.focus_force()
-        except Exception as e:
-            print(f"Window toggle error: {e}")
-            # Try to recreate or show the window if it was destroyed
+        def _toggle():
             try:
-                self.app.deiconify()
-                self.app.lift()
-                self.app.focus_force()
-            except Exception as e2:
-                print(f"Failed to restore window: {e2}")
+                if self.app.winfo_exists() and self.app.winfo_viewable():
+                    self.app.withdraw()
+                else:
+                    self.app.deiconify()
+                    self.app.lift()
+                    self.app.focus_force()
+            except Exception as e:
+                print(f"Window toggle error: {e}")
+        self.app.after(0, _toggle)
 
     def toggle_expansion(self):
         current_state = self.app.text_expander.enabled
@@ -146,29 +127,18 @@ class TrayIcon:
 
     def quit_app(self):
         try:
-            # First destroy the tray icon
             self.destroy_tray_icon()
-            
-            # Then quit the application
             if hasattr(self.app, 'quit_application'):
                 self.app.quit_application()
             else:
-                # Fallback quit methods
-                try:
-                    self.app.quit()
-                except:
-                    self.app.destroy()
-                    
-            # Force exit if still running
-            import sys
-            sys.exit(0)
+                self.app.after(0, self.app.quit)
         except Exception as e:
             print(f"Quit error: {e}")
-            import sys
-            sys.exit(1)
 
     # -------------------- Wayland --------------------
     def create_wayland_tray(self):
+        if self.tray_icon is not None:
+            return  # already running — prevent duplicate Gtk.main() threads
         if self.icon_path and self.icon_path.endswith('.ico'):
             # Convert ICO to PNG for AppIndicator3 compatibility
             try:
