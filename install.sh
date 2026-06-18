@@ -54,6 +54,20 @@ chmod +x "$DESKTOP_DIR/TEx.desktop"
 
 update-desktop-database "$DESKTOP_DIR" 2>/dev/null || true
 
+
+SHELL_RC="$HOME/.bashrc"
+[ -f "$HOME/.zshrc" ] && SHELL_RC="$HOME/.zshrc"
+
+if ! grep -q '\.local/bin' "$SHELL_RC" 2>/dev/null; then
+    echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$SHELL_RC"
+    echo "Added ~/.local/bin to PATH in $SHELL_RC"
+fi
+
+if command -v fish &>/dev/null; then
+    fish -c 'fish_add_path ~/.local/bin' 2>/dev/null || true
+fi
+
+
 echo ""
 echo "TEx installed."
 echo "  Run:      TEx"
