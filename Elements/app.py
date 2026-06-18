@@ -18,8 +18,10 @@ else:
 """"Main TEx application class"""
 
 class TEx(ctk.CTk):
-    def __init__(self):
+    def __init__(self, start_hidden=False):
         super().__init__()
+        if start_hidden:
+            self.withdraw()
         self.title("TEx")
         self.data_file = "user/Expansions.json"
         self.current_tag = "emoji"

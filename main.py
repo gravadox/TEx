@@ -2,11 +2,14 @@ from Elements.app import TEx
 from user_files.extract_user_files import setup_user_folder
 from user_files.extract_icon import setup_icon
 import os
+import sys
 
 if __name__ == "__main__":
+    background_mode = '--background' in sys.argv
+
     setup_icon()
     setup_user_folder()
-    app = TEx()
+    app = TEx(start_hidden=background_mode)
 
     try:
         icon_path = os.path.abspath('icon.ico')
@@ -23,6 +26,7 @@ if __name__ == "__main__":
 
     app.Show_tray()
     app.protocol("WM_DELETE_WINDOW", app.minimize_to_tray)
+
 
     # If the WM force-kills the window (e.g. SUPER+c in a tiling WM), quit
     # cleanly instead of leaving the tray running with a dead window.
