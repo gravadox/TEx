@@ -9,6 +9,15 @@ DESKTOP_DIR="$HOME/.local/share/applications"
 
 mkdir -p "$INSTALL_DIR" "$BIN_DIR" "$ICON_DIR" "$DESKTOP_DIR"
 
+# Check for python3-gi (PyGObject) — required for the Wayland tray icon
+if ! python3 -c "import gi" 2>/dev/null; then
+    echo "WARNING: PyGObject (python3-gi) is not installed."
+    echo "  Arch:          sudo pacman -S python-gobject"
+    echo "  Ubuntu/Debian: sudo apt install python3-gi"
+    echo "  Fedora:        sudo dnf install python3-gobject"
+    echo ""
+fi
+
 # If running from the repo (local binary exists), use it; otherwise download from GitHub
 if [ -f "./dist/TEx" ]; then
     echo "Using local binary..."

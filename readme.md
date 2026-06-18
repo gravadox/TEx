@@ -57,7 +57,7 @@ python main.py
 
   
 
-the expanding functionality is totaly achieved by the pynput library:
+You can inspect the expanding functionality in:
 
 ```bash
 
@@ -68,9 +68,15 @@ TEx/
 ```
 check: [text_expander.py](https://github.com/gravadox/TEx/blob/main/Expander/Text_expander.py) file
 
+---
+
+Screenshot:
 <img src="https://github.com/gravadox/TEx/blob/main/screenshots/image.png">
 
 the app comes with 7 default abbreviations, typeof emoji you can find in the abbreviations.json file:
+
+---
+example of user/expansions.json
 
 ```json
 
@@ -121,6 +127,8 @@ the app comes with 7 default abbreviations, typeof emoji you can find in the abb
 }
 
 ```
+
+---
 
 you have the freedom to create categoires and delete them.<br>
 you can also create an encrypted category by checking the checkbox for encryption.<br>
